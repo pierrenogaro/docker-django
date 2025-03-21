@@ -1,0 +1,28 @@
+{% block content %}
+  <h1>Liste des produits</h1>
+  <a href="{% url 'product_create' %}" class="btn">Ajouter un produit</a>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for product in products %}
+        <tr>
+          <td>{{ product.name }}</td>
+          <td>
+            <a href="{% url 'product_update' product.id %}">Modifier</a>
+            <a href="{% url 'product_delete' product.id %}">Supprimer</a>
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="2">Aucun produit disponible.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
