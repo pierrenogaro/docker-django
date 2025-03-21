@@ -24,9 +24,7 @@ SECRET_KEY = 'django-insecure-&*ci9qzp&$mm9xuzeo4$ag5rp!txehw%^^@w6h$i8$@il@9^b4
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(os.environ.get("DEBUG", default=0))
-ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS","127.0.0.1").split(",")
-
-# Application definition
+ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
 INSTALLED_APPS = [
     'django.contrib.auth',
